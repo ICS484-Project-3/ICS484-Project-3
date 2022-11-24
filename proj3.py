@@ -2,6 +2,7 @@
 # visit http://127.0.0.1:8050/ in your web browser.
 
 from dash import Dash, html, dcc
+import dash_cytoscape as cyto
 import dash_bootstrap_components as dbc
 import plotly.express as px
 import pandas as pd
@@ -13,6 +14,7 @@ import networkx as nx
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
+'''
 G = nx.random_geometric_graph(200, 0.125)
 
 edge_x = []
@@ -86,6 +88,60 @@ fig = go.Figure(data=[edge_trace, node_trace],
                 xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
                 yaxis=dict(showgrid=False, zeroline=False, showticklabels=False))
                 )
+'''
+'''
+# Creating graph objects
+G = nx.Graph()
+
+#Adding first node
+G.add_node(1)
+
+#Adding more nodes
+G.add_nodes_from([2,3,4,5,6,8,9,12,15,16])
+
+#Drawing the graph
+
+nx.draw(G)
+
+'''
+
+new_var = 'la'
+nodes = [
+    {
+        'data': {'id': short, 'label': label},
+        'position': {'x': 20 * lat, 'y': -20 * long}
+    }
+    for short, label, long, lat in (
+        ('la', 'Combo', 34.03, -118.25),
+        ('nyc', 'Mike Ehrmantrout', 40.71, -74),
+        ('to', 'Jesse Pinkman', 43.65, -79.38),
+        ('mtl', 'Gustavo Fring', 45.50, -73.57),
+        ('van', 'Hank Schraeder', 49.28, -123.12),
+        ('chi', 'Skinny P', 41.88, -87.63),
+        ('bos', 'Walter White', 42.36, -71.06),
+        ('hou', 'Badger', 29.76, -95.37)
+    )
+]
+
+edges = [
+    {'data': {'source': source, 'target': target}}
+    for source, target in (
+        ('van', 'la'),
+        ('la', 'chi'),
+        ('hou', 'chi'),
+        ('to', 'mtl'),
+        ('mtl', 'bos'),
+        ('nyc', 'bos'),
+        ('to', 'hou'),
+        ('to', 'chi'),
+        ('to', 'nyc'),
+        ('la', 'nyc'),
+        ('nyc', 'bos')
+    )
+]
+
+elements = nodes + edges
+
 
 
 app = Dash(__name__, external_stylesheets=external_stylesheets)
@@ -111,9 +167,14 @@ def render_content(tab):
             html.H3('Sample Network Graph '),
             dbc.Row(
             [
-                dbc.Container([dcc.Graph(
-                figure=fig
-            )]),
+                dbc.Container(cyto.Cytoscape(
+        id='cytoscape-layout-1',
+        elements=elements,
+        style={'width': '100%', 'height': '350px'},
+        layout={
+            'name': 'preset'
+        }
+            )),
             ] ),  
             
         ])
