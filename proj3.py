@@ -152,7 +152,7 @@ app.layout = html.Div([
         dcc.Tab(label='tab1', value='tab-1'),
         dcc.Tab(label='tab2', value='tab-2'),
         dcc.Tab(label='tab3', value='tab-3'),
-        dcc.Tab(label='tab4', value='tab-4'),
+        dcc.Tab(label='About', value='tab-4'),
 
 
     ]),
@@ -195,17 +195,21 @@ def render_content(tab):
             dcc.Markdown(
                 '''
 
-                Data visualization by Cole Amparo, Justin Honda and Mujtaba Quadri 
+                > ### Data visualization by:
+                >
+                > - Cole Amparo
+                > - Justin Honda
+                > - Mujtaba (Abdullah) Quadri
 
                 ---
-                ## Sources
+                ### Sources
 
                 ---
 
-                Tools used for Visualization: 
-
-                [Plotly](https://plotly.com/?_gl=1*54kric*_ga*MTUwMDA3NDI3Ni4xNjYzMjMwNTI5*_ga_6G7EE0JNSC*MTY2MzI4OTQ5NC4yLjEuMTY2MzMwNjc1NC4wLjAuMA/), 
-                [Dash](https://plotly.com/dash/), 
+                > ### Tools used for Visualization: 
+                >
+                > - [Plotly](https://plotly.com/?_gl=1*54kric*_ga*MTUwMDA3NDI3Ni4xNjYzMjMwNTI5*_ga_6G7EE0JNSC*MTY2MzI4OTQ5NC4yLjEuMTY2MzMwNjc1NC4wLjAuMA/), 
+                > - [Dash](https://plotly.com/dash/), 
                 '''
             )
         ], style= {'width': '100%', 'height': '1000px', 'margin-top': '10', 'margin-left' : '80', 'font-size':'20px'})
