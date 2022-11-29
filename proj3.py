@@ -14,6 +14,8 @@ import networkx as nx
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
+cyto.load_extra_layouts()
+
 '''
 G = nx.random_geometric_graph(200, 0.125)
 
@@ -108,18 +110,17 @@ nx.draw(G)
 new_var = 'la'
 nodes = [
     {
-        'data': {'id': short, 'label': label},
-        'position': {'x': 20 * lat, 'y': -20 * long}
+        'data': {'id': short, 'label': label}
     }
-    for short, label, long, lat in (
-        ('la', 'Combo', 34.03, -118.25),
-        ('nyc', 'Mike Ehrmantrout', 40.71, -74),
-        ('to', 'Jesse Pinkman', 43.65, -79.38),
-        ('mtl', 'Gustavo Fring', 45.50, -73.57),
-        ('van', 'Hank Schraeder', 49.28, -123.12),
-        ('chi', 'Skinny P', 41.88, -87.63),
-        ('bos', 'Walter White', 42.36, -71.06),
-        ('hou', 'Badger', 29.76, -95.37)
+    for short, label in (
+        ('la', 'Combo'),
+        ('nyc', 'Mike Ehrmantrout'),
+        ('to', 'Jesse Pinkman'),
+        ('mtl', 'Gustavo Fring'),
+        ('van', 'Hank Schraeder'),
+        ('chi', 'Skinny P'),
+        ('bos', 'Walter White'),
+        ('hou', 'Badger')
     )
 ]
 
@@ -172,7 +173,7 @@ def render_content(tab):
         elements=elements,
         style={'width': '100%', 'height': '350px'},
         layout={
-            'name': 'preset'
+            'name': 'cose' #grid 
         }
             )),
             ] ),  
