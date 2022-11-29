@@ -34,7 +34,7 @@ nodes = [
 ]
 
 edges = [
-    {'data': {'source': source, 'target': target}}
+    {'data': {'source': source, 'target': target}, }
     for source, target in (
         ('van', 'la'),
         ('la', 'chi'),
@@ -50,7 +50,10 @@ edges = [
     )
 ]
 
+# edge2...
+
 elements = nodes + edges
+# elements2 = nodes + edges2
 
 
 
@@ -78,12 +81,13 @@ def render_content(tab):
             dbc.Row(
             [
                 dbc.Container(cyto.Cytoscape(
-        id='cytoscape-layout-1',
-        elements=elements,
-        style={'width': '100%', 'height': '350px'},
-        layout={
-            'name': 'cose' #grid 
-        }
+                    id='cytoscape-layout-1',
+                    # interactivity here elements 1 or 2
+                    elements=elements,
+                    style={'width': '100%', 'height': '350px', 'line-color': 'orange'},
+                    layout={
+                    'name': 'cose' 
+                }
             )),
             ] ),  
             
