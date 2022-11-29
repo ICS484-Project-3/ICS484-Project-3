@@ -14,117 +14,27 @@ import networkx as nx
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-'''
-G = nx.random_geometric_graph(200, 0.125)
-
-edge_x = []
-edge_y = []
-for edge in G.edges():
-    x0, y0 = G.nodes[edge[0]]['pos']
-    x1, y1 = G.nodes[edge[1]]['pos']
-    edge_x.append(x0)
-    edge_x.append(x1)
-    edge_x.append(None)
-    edge_y.append(y0)
-    edge_y.append(y1)
-    edge_y.append(None)
-
-edge_trace = go.Scatter(
-    x=edge_x, y=edge_y,
-    line=dict(width=0.5, color='#888'),
-    hoverinfo='none',
-    mode='lines')
-
-node_x = []
-node_y = []
-for node in G.nodes():
-    x, y = G.nodes[node]['pos']
-    node_x.append(x)
-    node_y.append(y)
-
-node_trace = go.Scatter(
-    x=node_x, y=node_y,
-    mode='markers',
-    hoverinfo='text',
-    marker=dict(
-        showscale=True,
-        # colorscale options
-        #'Greys' | 'YlGnBu' | 'Greens' | 'YlOrRd' | 'Bluered' | 'RdBu' |
-        #'Reds' | 'Blues' | 'Picnic' | 'Rainbow' | 'Portland' | 'Jet' |
-        #'Hot' | 'Blackbody' | 'Earth' | 'Electric' | 'Viridis' |
-        colorscale='YlGnBu',
-        reversescale=True,
-        color=[],
-        size=10,
-        colorbar=dict(
-            thickness=15,
-            title='Node Connections',
-            xanchor='left',
-            titleside='right'
-        ),
-        line_width=2))
-
-node_adjacencies = []
-node_text = []
-for node, adjacencies in enumerate(G.adjacency()):
-    node_adjacencies.append(len(adjacencies[1]))
-    node_text.append('# of connections: '+str(len(adjacencies[1])))
-
-node_trace.marker.color = node_adjacencies
-node_trace.text = node_text
-
-fig = go.Figure(data=[edge_trace, node_trace],
-             layout=go.Layout(
-                title='<br>Template Network Graph',
-                titlefont_size=16,
-                showlegend=False,
-                hovermode='closest',
-                margin=dict(b=20,l=5,r=5,t=40),
-                #annotations=[ dict(
-                  #  text="Python code: <a href='https://plotly.com/ipython-notebooks/network-graphs/'> https://plotly.com/ipython-notebooks/network-graphs/</a>",
-                   # showarrow=False,
-                   # xref="paper", yref="paper",
-                   # x=0.005, y=-0.002 ) ],
-                xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
-                yaxis=dict(showgrid=False, zeroline=False, showticklabels=False))
-                )
-'''
-'''
-# Creating graph objects
-G = nx.Graph()
-
-#Adding first node
-G.add_node(1)
-
-#Adding more nodes
-G.add_nodes_from([2,3,4,5,6,8,9,12,15,16])
-
-#Drawing the graph
-
-nx.draw(G)
-
-'''
+cyto.load_extra_layouts()
 
 new_var = 'la'
 nodes = [
     {
-        'data': {'id': short, 'label': label},
-        'position': {'x': 20 * lat, 'y': -20 * long}
+        'data': {'id': short, 'label': label}
     }
-    for short, label, long, lat in (
-        ('la', 'Combo', 34.03, -118.25),
-        ('nyc', 'Mike Ehrmantrout', 40.71, -74),
-        ('to', 'Jesse Pinkman', 43.65, -79.38),
-        ('mtl', 'Gustavo Fring', 45.50, -73.57),
-        ('van', 'Hank Schraeder', 49.28, -123.12),
-        ('chi', 'Skinny P', 41.88, -87.63),
-        ('bos', 'Walter White', 42.36, -71.06),
-        ('hou', 'Badger', 29.76, -95.37)
+    for short, label in (
+        ('la', 'Combo'),
+        ('nyc', 'Mike Ehrmantrout'),
+        ('to', 'Jesse Pinkman'),
+        ('mtl', 'Gustavo Fring'),
+        ('van', 'Hank Schraeder'),
+        ('chi', 'Skinny P'),
+        ('bos', 'Walter White'),
+        ('hou', 'Badger')
     )
 ]
 
 edges = [
-    {'data': {'source': source, 'target': target}}
+    {'data': {'source': source, 'target': target}, }
     for source, target in (
         ('van', 'la'),
         ('la', 'chi'),
@@ -140,7 +50,10 @@ edges = [
     )
 ]
 
+# edge2...
+
 elements = nodes + edges
+# elements2 = nodes + edges2
 
 
 
@@ -168,12 +81,13 @@ def render_content(tab):
             dbc.Row(
             [
                 dbc.Container(cyto.Cytoscape(
-        id='cytoscape-layout-1',
-        elements=elements,
-        style={'width': '100%', 'height': '350px'},
-        layout={
-            'name': 'preset'
-        }
+                    id='cytoscape-layout-1',
+                    # interactivity here elements 1 or 2
+                    elements=elements,
+                    style={'width': '100%', 'height': '350px', 'line-color': 'orange'},
+                    layout={
+                    'name': 'cose' 
+                }
             )),
             ] ),  
             
