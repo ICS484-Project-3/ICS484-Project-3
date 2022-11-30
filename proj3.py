@@ -260,7 +260,6 @@ newly = [
         ('ca', 'nl'),
         ('ca', 'cs'),
         ('ca', 'hc'),
-
         ('mr', 'pg'),
         ('mr', 'ss'),
         ('mr', 'jk'),
@@ -290,7 +289,30 @@ newly = [
         ('js', 'ca'),
         ('js', 'twi'),
         ('js', 'cs'),
-        ('js', 'mr')
+        ('js', 'mr'),
+        ('hb', 'pg'),
+        ('hb', 'jk'),
+        ('hb', 'ce'), 
+        ('hb', 'lre'),
+        ('hb', 'two'),
+        ('hb', 'kbe'),
+        ('hb', 'zc'),
+        ('hb', 'ie'),
+        ('hb', 'eb'),
+        ('hb', 'co'),
+        ('hb', 'lr'),
+        ('hb', 'gb'),
+        ('hb', 'twi'),
+        ('hb', 'js'),
+        ('hb', 'tl'),
+        ('hb', 'sr'),
+        ('hb', 'jc'),
+        ('hb', 'jl'),
+        ('hb', 'jh'),
+        ('hb', 'kh'),
+        ('hb', 'nl'),
+        ('hb', 'cs'),
+        ('hb', 'hc')
     )
 ]
 
