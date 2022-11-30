@@ -84,7 +84,7 @@ def render_content(tab):
                     id='cytoscape-layout-1',
                     # interactivity here elements 1 or 2
                     elements=elements,
-                    style={'width': '100%', 'height': '350px', 'line-color': 'orange'},
+                    style={'width': '100%', 'height': '350px'},
                     layout={
                     'name': 'cose' 
                 }
