@@ -56,7 +56,7 @@ nodes = [
     )
 ]
 
-already = [
+rawDataAlready = [
     {'data': {'source': source, 'target': target}, }
     for source, target in (
         ('jc', 'lre'),
@@ -68,7 +68,7 @@ already = [
         ('cs', 'pg'),
         ('cs', 'ca'),
         ('cs', 'mb'),
-        ('cs', 'tw'),
+        ('cs', 'twi'),
         ('cs', 'js'),
         ('cs', 'mr'),
         ('cs', 'hc'),
@@ -80,7 +80,7 @@ already = [
         ('tl', 'mq'),
         ('ca', 'hb'),
         ('ca', 'mq'),
-        ('mr', 'tw'),
+        ('mr', 'twi'),
         ('mr', 'cs'),
         ('js', 'ss'),
         ('js', 'mb'),
@@ -119,7 +119,7 @@ already = [
     )
 ]
 
-newly = [
+rawDataNewly = [
     {'data': {'source': source, 'target': target}, }
     for source, target in (
         ('jd', 'pg'),
@@ -415,8 +415,8 @@ newly = [
 
 # edge2...
 
-elements = nodes + newly
-# elements2 = nodes + edges2
+rawDataNewlyElements = nodes + rawDataNewly
+rawDataAlreadyElements = nodes + rawDataAlready
 
 
 
@@ -427,7 +427,7 @@ app.layout = html.Div([
     dcc.Tabs(id="tabs-example-graph", value='tab-1', children=[
         dcc.Tab(label='tab1', value='tab-1'),
         dcc.Tab(label='tab2', value='tab-2'),
-        dcc.Tab(label='tab3', value='tab-3'),
+        dcc.Tab(label='Raw Data Graphs', value='tab-3'),
         dcc.Tab(label='About', value='tab-4'),
 
 
@@ -440,19 +440,6 @@ app.layout = html.Div([
 def render_content(tab):
     if tab == 'tab-1':
         return html.Div([
-            html.H3('Sample Network Graph '),
-            dbc.Row(
-            [
-                dbc.Container(cyto.Cytoscape(
-                    id='cytoscape-layout-1',
-                    # interactivity here elements 1 or 2
-                    elements=elements,
-                    style={'width': '100%', 'height': '350px'},
-                    layout={
-                    'name': 'cose' 
-                }
-            )),
-            ] ),  
             
         ])
     elif tab == 'tab-2':
@@ -463,10 +450,33 @@ def render_content(tab):
         ])
     elif tab == 'tab-3':
         return html.Div([
-            html.H3('Tab 3 placeholder'),
-
+            html.H3('Newly Accquainted Graph Raw Data'),
+            dbc.Row(
+            [
+                dbc.Container(cyto.Cytoscape(
+                    id='cytoscape-layout-1',
+                    # interactivity here elements 1 or 2
+                    elements=rawDataNewlyElements,
+                    style={'width': '100%', 'height': '350px'},
+                    layout={
+                    'name': 'spread' 
+                }
+            )),
+            ] ),  
+            html.H3('Already Accquainted Graph Raw Data'),
+            dbc.Row(
+            [
+                dbc.Container(cyto.Cytoscape(
+                    id='cytoscape-layout-1',
+                    # interactivity here elements 1 or 2
+                    elements=rawDataAlreadyElements,
+                    style={'width': '100%', 'height': '350px'},
+                    layout={
+                    'name': 'spread' 
+                }
+            )),
+            ] ),       
         ])
-
     elif tab == 'tab-4':
         return html.Div([
             dcc.Markdown(
