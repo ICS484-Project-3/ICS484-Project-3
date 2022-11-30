@@ -312,7 +312,32 @@ newly = [
         ('hb', 'kh'),
         ('hb', 'nl'),
         ('hb', 'cs'),
-        ('hb', 'hc')
+        ('hb', 'hc'),
+        ('ss', 'pg'),
+        ('ss', 'jk'),
+        ('ss', 'ce'),
+        ('ss', 'lre'),
+        ('ss', 'two'),
+        ('ss', 'jd'),
+        ('ss', 'kbr'),
+        ('ss', 'ca'),
+        ('ss', 'zc'),
+        ('ss', 'ie'),
+        ('ss', 'eb'),
+        ('ss', 'lr'),
+        ('ss', 'gb'),
+        ('ss', 'mq'),
+        ('ss', 'twi'),
+        ('ss', 'js'),
+        ('ss', 'js'),
+        ('ss', 'tl'),
+        ('ss', 'sr'),
+        ('ss', 'jc'),
+        ('ss', 'jl'),
+        ('ss', 'kh'),
+        ('ss', 'cs'),
+        ('ss', 'hc'),
+
     )
 ]
 
