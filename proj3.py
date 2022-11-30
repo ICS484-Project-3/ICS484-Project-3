@@ -413,10 +413,115 @@ rawDataNewly = [
     )
 ]
 
-# edge2...
+
+modifiedDataAlready = [
+    {'data': {'source': source, 'target': target}, }
+    for source, target in (
+        ('co', 'hc'),
+        ('co', 'lra'),
+        ('co', 'mb'),
+        ('cs', 'mb'),
+        ('cs', 'mr'),
+        ('ca', 'hb'),
+        ('ca', 'mb'),
+        ('ca', 'mq'),
+        ('hb', 'mq'),
+        ('hb', 'ss'),
+        ('ie', 'lra'),
+        ('jd', 'lre'),
+        ('js', 'mq'),
+        ('lra', 'mq'),
+        ('mr', 'twi'),
+        ('mq', 'tl'),
+        ('pg', 'co'),
+        ('pg', 'cs'),
+        ('pg', 'ie'),
+        ('gb', 'tl'),
+        ('jh', 'mq'),
+        ('jh', 'ss'),
+        ('kh', 'lre'),
+        ('kh', 'mq'),
+        ('nl', 'mq'),
+        ('nl', 'ss'),
+    )
+]
+
+modifiedDataNewly = [
+    {'data': {'source': source, 'target': target}, }
+    for source, target in (
+        ('co', 'ca'),
+        ('co', 'jc'),
+        ('co', 'jl'),
+        ('co', 'js'),
+        ('co', 'ss'),
+        ('cs', 'ca'),
+        ('cs', 'hc'),
+        ('cs', 'hb'),
+        ('cs', 'js'),
+        ('co', 'twi'),
+        ('ca', 'hc'),
+        ('ca', 'jc'),
+        ('ca', 'js'),
+        ('ca', 'lra'),
+        ('ca', 'ss'),
+        ('ca', 'tl'),
+        ('eb', 'jk'),
+        ('hc', 'jc'),
+        ('hc', 'js'),
+        ('hc', 'lra'),
+        ('hc', 'mb'),
+        ('hc', 'twi'),
+        ('hb', 'js'),
+        ('hb', 'lre'),
+        ('hb', 'lra'),
+        ('hb', 'mb'),
+        ('hb', 'mr'),
+        ('hb', 'tl'),
+        ('jc', 'jl'),
+        ('jc', 'jd'),
+        ('jc', 'kbr'),
+        ('jc', 'mq'),
+        ('jl', 'jd'),
+        ('jl', 'mb'),
+        ('jl', 'twi'),
+        ('jd', 'mq'),
+        ('js', 'lra'),
+        ('js', 'mb'),
+        ('js', 'mr'),
+        ('js', 'ss'),
+        ('js', 'twi'),
+        ('kbr', 'mq'),
+        ('kbr', 'tl'),
+        ('lre', 'lra'),
+        ('lre', 'ss'),
+        ('mb', 'ss'),
+        ('mr', 'ss'),
+        ('mq', 'ss'),
+        ('pg', 'lra'),
+        ('ce', 'eb'),
+        ('ce', 'jk'),
+        ('jh', 'ca'),
+        ('jh', 'hb'),
+        ('jh', 'mr'),
+        ('jh', 'zc'),
+        ('kh', 'ca'),
+        ('kh', 'jc'),
+        ('kh', 'jl'),
+        ('kh', 'lra'),
+        ('kh', 'twi'),
+        ('nl', 'ca'),
+        ('nl', 'hb'),
+        ('nl', 'lre'),
+        ('nl', 'lra')
+
+    )
+]
 
 rawDataNewlyElements = nodes + rawDataNewly
 rawDataAlreadyElements = nodes + rawDataAlready
+modifiedDataNewlyElements = nodes + modifiedDataNewly
+modifiedDataAlreadyElements = nodes + modifiedDataAlready
+
 
 
 
@@ -425,7 +530,7 @@ app = Dash(__name__, external_stylesheets=external_stylesheets)
 app.layout = html.Div([
     html.H1('Project 3 Possible Template'),
     dcc.Tabs(id="tabs-example-graph", value='tab-1', children=[
-        dcc.Tab(label='tab1', value='tab-1'),
+        dcc.Tab(label='Modfied Data Graphs', value='tab-1'),
         dcc.Tab(label='tab2', value='tab-2'),
         dcc.Tab(label='Raw Data Graphs', value='tab-3'),
         dcc.Tab(label='About', value='tab-4'),
@@ -440,6 +545,32 @@ app.layout = html.Div([
 def render_content(tab):
     if tab == 'tab-1':
         return html.Div([
+            html.H3('Newly Accquainted Graph Modiefied Data'),
+            dbc.Row(
+            [
+                dbc.Container(cyto.Cytoscape(
+                    id='cytoscape-layout-1',
+                    # interactivity here elements 1 or 2
+                    elements=modifiedDataNewlyElements,
+                    style={'width': '100%', 'height': '350px'},
+                    layout={
+                    'name': 'grid' 
+                }
+            )),
+            ] ),  
+            html.H3('Already Accquainted Graph Modified Data'),
+            dbc.Row(
+            [
+                dbc.Container(cyto.Cytoscape(
+                    id='cytoscape-layout-1',
+                    # interactivity here elements 1 or 2
+                    elements=modifiedDataAlreadyElements,
+                    style={'width': '100%', 'height': '350px'},
+                    layout={
+                    'name': 'grid' 
+                }
+            )),
+            ] ),       
             
         ])
     elif tab == 'tab-2':
