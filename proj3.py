@@ -530,9 +530,9 @@ app = Dash(__name__, external_stylesheets=external_stylesheets)
 app.layout = html.Div([
     html.H1('Project 3 Possible Template'),
     dcc.Tabs(id="tabs-example-graph", value='tab-1', children=[
-        dcc.Tab(label='Modfied Data Graphs', value='tab-1'),
-        dcc.Tab(label='tab2', value='tab-2'),
-        dcc.Tab(label='Raw Data Graphs', value='tab-3'),
+        dcc.Tab(label='Social Network', value='tab-1'),
+        dcc.Tab(label='Raw Data Graph', value='tab-2'),
+        dcc.Tab(label='Modfied Data Graphs', value='tab-3'),
         dcc.Tab(label='About', value='tab-4'),
 
 
@@ -543,10 +543,10 @@ app.layout = html.Div([
 @app.callback(Output('tabs-content-example-graph', 'children'),
               Input('tabs-example-graph', 'value'))
 def render_content(tab):
-    if tab == 'tab-1':
+    if tab == 'tab-3':
         return html.Div([
             html.H3('Newly Acquainted Network (Modified Data)', style={'text-align': 'center', 'color': '#E58F13'}),
-            html.P('This network depicts the total number of connections after the start of ICS390.', style={'text-align': 'center', 'color': '#E58F13'}),
+            html.P('This network depicts the total number of connections after the start of ICS484.', style={'text-align': 'center', 'color': '#E58F13'}),
             dbc.Row(
             [
                 dbc.Container(cyto.Cytoscape(
@@ -560,7 +560,7 @@ def render_content(tab):
             )),
             ] ),  
             html.H3('Previously Acquainted Network (Modified Data)', style={'text-align': 'center', 'color': '#E58F13'}),
-            html.P('This network depicts the total number of connections before the start of ICS390.', style={'text-align': 'center', 'color': '#E58F13'}),            dbc.Row(
+            html.P('This network depicts the total number of connections before the start of ICS484.', style={'text-align': 'center', 'color': '#E58F13'}),            dbc.Row(
             [
                 dbc.Container(cyto.Cytoscape(
                     id='cytoscape-layout-1',
@@ -574,15 +574,17 @@ def render_content(tab):
             ] ),       
             
         ], style={"border":"2px black solid"})
+    elif tab == 'tab-1':
+        return html.Div([
+            html.H3('Network Graph', style={'text-align': 'center', 'color': '#148747'}),
+            html.P('This network depicts the connections betweens students in ICS484.', style={'text-align': 'center', 'color': '#148747'}),            
+            html.Img(src=r'assets/484grouping.png', alt='image'),
+
+        ], style={"border":"2px black solid"})
     elif tab == 'tab-2':
         return html.Div([
-            html.H3('Tab 2 placeholder'),
-            
-            
-        ])
-    elif tab == 'tab-3':
-        return html.Div([
-            html.H3('Newly Accquainted Graph Raw Data'),
+            html.H3('Newly Acquainted Network (Raw Data)', style={'text-align': 'center', 'color': '#7A33EA'}),
+            html.P('This network depicts the total number of connections after the start of ICS484.', style={'text-align': 'center', 'color': '#7A33EA'}),            
             dbc.Row(
             [
                 dbc.Container(cyto.Cytoscape(
@@ -595,8 +597,9 @@ def render_content(tab):
                 }
             )),
             ] ),  
-            html.H3('Already Accquainted Graph Raw Data'),
-            dbc.Row(
+            html.H3('Previously Acquainted Network (Modified Data)', style={'text-align': 'center', 'color': '#E58F13'}),
+            html.P('This network depicts the total number of connections before the start of ICS484.', style={'text-align': 'center', 'color': '#E58F13'}),            
+             dbc.Row(
             [
                 dbc.Container(cyto.Cytoscape(
                     id='cytoscape-layout-1',
@@ -608,7 +611,7 @@ def render_content(tab):
                 }
             )),
             ] ),       
-        ])
+        ], style={"border":"2px black solid"})
     elif tab == 'tab-4':
         return html.Div([
             dcc.Markdown(
