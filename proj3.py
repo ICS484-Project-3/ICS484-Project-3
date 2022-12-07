@@ -602,7 +602,7 @@ def render_content(tab):
                     id='cytoscape-layout-1',
                     # interactivity here elements 1 or 2
                     elements=rawDataAlreadyElements,
-                    style={'width': '100%', 'height': '350px'},
+                    style={'width': '100%', 'height': '1000px'},
                     layout={
                     'name': 'concentric' 
                 }
