@@ -23,6 +23,7 @@ nodes = [
     }
     for short, label in (
         ('jd', 'Jeremiah Dy'),
+        ('hb', 'Henry Blazier'),
         ('kbr', 'Kale Beever-Riordon'),
         ('jc', 'Jade Cui'),
         ('jl', 'Jamie Laurin'),
@@ -38,7 +39,6 @@ nodes = [
         ('ca', 'Cole Amparo'),
         ('mr', 'Michael Rogers'),
         ('js', 'John Suelen'),
-        ('hb', 'Henry Blazier'),
         ('ss', 'Shane Severino'),
         ('hc', 'Hansen Cabanero'),
         ('co', 'Chad Oshiro'),
