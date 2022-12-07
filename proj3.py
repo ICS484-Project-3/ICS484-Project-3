@@ -568,7 +568,9 @@ def render_content(tab):
                     elements=modifiedDataAlreadyElements,
                     style={'width': '100%', 'height': '600px'},
                     layout={
-                    'name': 'grid' 
+                    'name': 'cose',
+                    'padding': 20,
+                    'componentSpacing': 30
                 }
             )),
             ] ),       
