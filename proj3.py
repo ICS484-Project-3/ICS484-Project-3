@@ -552,9 +552,9 @@ def render_content(tab):
                     id='cytoscape-layout-1',
                     # interactivity here elements 1 or 2
                     elements=modifiedDataNewlyElements,
-                    style={'width': '100%', 'height': '350px'},
+                    style={'width': '100%', 'height': '1000px'},
                     layout={
-                    'name': 'grid' 
+                    'name': 'circle' 
                 }
             )),
             ] ),  
@@ -565,7 +565,7 @@ def render_content(tab):
                     id='cytoscape-layout-1',
                     # interactivity here elements 1 or 2
                     elements=modifiedDataAlreadyElements,
-                    style={'width': '100%', 'height': '350px'},
+                    style={'width': '100%', 'height': '600px'},
                     layout={
                     'name': 'grid' 
                 }
@@ -588,7 +588,7 @@ def render_content(tab):
                     id='cytoscape-layout-1',
                     # interactivity here elements 1 or 2
                     elements=rawDataNewlyElements,
-                    style={'width': '100%', 'height': '350px'},
+                    style={'width': '100%', 'height': '2000px'},
                     layout={
                     'name': 'spread' 
                 }
