@@ -38,7 +38,7 @@ nodes = [
         ('eb', 'Edward Bruffey'),
         ('ca', 'Cole Amparo'),
         ('mr', 'Michael Rogers'),
-        ('js', 'John Suelen'),
+        ('sr', 'Samuel Roberts'),
         ('ss', 'Shane Severino'),
         ('hc', 'Hansen Cabanero'),
         ('co', 'Chad Oshiro'),
@@ -49,7 +49,7 @@ nodes = [
         ('pg', 'Preston Garcia'),
         ('ce', 'Candace Edwards'),
         ('gb', 'Gunwook Baik'),
-        ('sr', 'Samuel Roberts'),
+        ('js', 'John Suelen'),
         ('kh', 'Kelly Hwang'),
         ('nl', 'Nicholas Lee'),
 
