@@ -559,8 +559,8 @@ def render_content(tab):
                 }
             )),
             ] ),  
-            html.H3('Already Accquainted Graph Modified Data'),
-            dbc.Row(
+            html.H3('Previously Acquainted Network (Modified Data)', style={'text-align': 'center', 'color': '#E58F13'}),
+            html.P('This network depicts the total number of connections before the start of ICS390.', style={'text-align': 'center', 'color': '#E58F13'}),            dbc.Row(
             [
                 dbc.Container(cyto.Cytoscape(
                     id='cytoscape-layout-1',
