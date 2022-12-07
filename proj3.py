@@ -528,28 +528,45 @@ modifiedDataAlreadyElements = nodes + modifiedDataAlready
 question1 = [12, 10, 3, 5]
 q1titles = ['Fourth Year', 'Fifth + Graduate', 'Third Year', 'Did Not Answer']
 
-q1Fig = px.pie(values=question1, names=q1titles)
+q1Fig = px.pie(values=question1, names=q1titles, color=q1titles,
+             color_discrete_map={'Fourth Year':'#D27CCE',
+                                 'Fifth + Graduate':'#68AD37',
+                                 'Third Year':'#36B7DA',
+                                 'Did Not Answer':'#FEF5FD'})
 
 question2 = [11, 13, 6]
 q2titles = ['Cat Person', 'Dog Person', 'Did Not Answer']
 
-q2Fig = px.pie(values=question2, names=q2titles)
+q2Fig = px.pie(values=question2, names=q2titles, color=q2titles,
+             color_discrete_map={'Cat Person':'#896BFF',
+                                 'Dog Person':'#F89102',
+                                 'Did Not Answer':'#FEF5FD'})
+
 
 question3 = [21, 4, 5]
 q3titles = ['Introverted', 'Extroverted', 'Did Not Answer']
 
-q3Fig = px.pie(values=question3, names=q3titles)
+q3Fig = px.pie(values=question3, names=q3titles, color=q3titles,
+             color_discrete_map={'Introverted':'#9A96E5',
+                                 'Extroverted':'#2FB36A',
+                                 'Did Not Answer':'#FEF5FD'})
 
 question4 = [14, 11, 5]
 q4titles = ['Not in a Relationship', 'In a Relationship', 'Did Not Answer']
 
-q4Fig = px.pie(values=question4, names=q4titles)
+q4Fig = px.pie(values=question4, names=q4titles, color=q4titles,
+             color_discrete_map={'Not in a Relationship':'#CFFFAD',
+                                 'In a Relationship':'#F49EFF',
+                                 'Did Not Answer':'#FEF5FD'})
 
 
 question5 = [21, 4, 5]
 q5titles = ['Night Owl', 'Early Bird', 'Did Not Answer']
 
-q5Fig = px.pie(values=question5, names=q5titles)
+q5Fig = px.pie(values=question5, names=q5titles, color=q5titles,
+             color_discrete_map={'Night Owl':'#8F61FF',
+                                 'Early Bird':'#3FCDFF',
+                                 'Did Not Answer':'#FEF5FD'})
 
 
 
@@ -638,8 +655,8 @@ def render_content(tab):
                 }
             )),
             ] ),  
-            html.H3('Previously Acquainted Network (Modified Data)', style={'text-align': 'center', 'color': '#E58F13'}),
-            html.P('This network depicts the total number of connections before the start of ICS484.', style={'text-align': 'center', 'color': '#E58F13'}),            
+            html.H3('Previously Acquainted Network (Raw Data)', style={'text-align': 'center', 'color': '#7A33EA'}),
+            html.P('This network depicts the total number of connections before the start of ICS484.', style={'text-align': 'center', 'color': '#7A33EA'}),            
              dbc.Row(
             [
                 dbc.Container(cyto.Cytoscape(
@@ -656,13 +673,13 @@ def render_content(tab):
 
     elif tab == 'tab-4':
         return html.Div([
-            html.H3('Demographic Questions', style={'text-align': 'center', 'color': '#148747'}),
+            html.H3('Demographic Questions', style={'text-align': 'center', 'color': '#000000'}),
             #html.P('This network depicts the connections betweens students in ICS484.', style={'text-align': 'center', 'color': '#148747'}),        
             dbc.Row
              ([    
-                html.H3('Question 1: Class Standing', style={'text-align': 'center', 'color': '#148747'}),
+                html.H3('Question 1: Class Standing', style={'text-align': 'center', 'color': '#D27CCE'}),
                 dbc.Col([
-                html.Img(src=r'assets/484grouping.png', alt='image', width='100%'),
+                html.Img(src=r'assets/class.png', alt='image', width='100%'),
                 ], style={'width':'66%', 'float': 'left'}),
                 dbc.Col([
                     dcc.Graph(figure=q1Fig)
@@ -671,19 +688,19 @@ def render_content(tab):
               ]),
               dbc.Row
              ([    
-                html.H3('Question 2: Dog or Cat Person', style={'text-align': 'center', 'color': '#148747'}),
+                html.H3('Question 2: Dog or Cat Person', style={'text-align': 'center', 'color': '#F89102'}),
                 dbc.Col([
                     dcc.Graph(figure=q2Fig)
                 ], style={'width': '33%', 'float': 'left'}),
                 dbc.Col([
-                html.Img(src=r'assets/484grouping.png', alt='image', width='100%'),
+                html.Img(src=r'assets/animal.png', alt='image', width='100%'),
                 ], style={'width':'66%', 'float': 'left'}),
               ]),
               dbc.Row
              ([    
-                html.H3('Question 3: Extroverted or Introverted', style={'text-align': 'center', 'color': '#148747'}),
+                html.H3('Question 3: Extroverted or Introverted', style={'text-align': 'center', 'color': '#9A96E5'}),
                 dbc.Col([
-                html.Img(src=r'assets/484grouping.png', alt='image', width='100%'),
+                html.Img(src=r'assets/social.png', alt='image', width='100%'),
                 ], style={'width':'66%', 'float': 'left'}),
                 dbc.Col([
                     dcc.Graph(figure=q3Fig)
@@ -691,19 +708,19 @@ def render_content(tab):
               ]),
               dbc.Row
              ([    
-                html.H3('Question 4: In a relationship?', style={'text-align': 'center', 'color': '#148747'}),
+                html.H3('Question 4: In a relationship?', style={'text-align': 'center', 'color': '#F49EFF'}),
                 dbc.Col([
                     dcc.Graph(figure=q4Fig)
                 ], style={'width': '33%', 'float': 'left'}),
                 dbc.Col([
-                html.Img(src=r'assets/484grouping.png', alt='image', width='100%'),
+                html.Img(src=r'assets/relationship.png', alt='image', width='100%'),
                 ], style={'width':'66%', 'float': 'left'}),
               ]),
               dbc.Row
              ([    
-                html.H3('Question 5: Night Owl or Early Bird', style={'text-align': 'center', 'color': '#148747'}),
+                html.H3('Question 5: Night Owl or Early Bird', style={'text-align': 'center', 'color': '#8F61FF'}),
                 dbc.Col([
-                html.Img(src=r'assets/484grouping.png', alt='image', width='100%'),
+                html.Img(src=r'assets/day.png', alt='image', width='100%'),
                 ], style={'width':'66%', 'float': 'left'}),
                 dbc.Col([
                     dcc.Graph(figure=q5Fig)
