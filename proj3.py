@@ -545,7 +545,8 @@ app.layout = html.Div([
 def render_content(tab):
     if tab == 'tab-1':
         return html.Div([
-            html.H3('Newly Accquainted Graph Modiefied Data'),
+            html.H3('Newly Acquainted Network (Modified Data)', style={'text-align': 'center', 'color': '#E58F13'}),
+            html.P('This network depicts the total number of connections after the start of ICS390.', style={'text-align': 'center', 'color': '#E58F13'}),
             dbc.Row(
             [
                 dbc.Container(cyto.Cytoscape(
@@ -572,7 +573,7 @@ def render_content(tab):
             )),
             ] ),       
             
-        ])
+        ], style={"border":"2px black solid"})
     elif tab == 'tab-2':
         return html.Div([
             html.H3('Tab 2 placeholder'),
