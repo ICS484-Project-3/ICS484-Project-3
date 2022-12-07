@@ -569,8 +569,8 @@ def render_content(tab):
                     style={'width': '100%', 'height': '600px'},
                     layout={
                     'name': 'cose',
-                    'padding': 20,
-                    'componentSpacing': 30
+                    'padding': 100,
+                    'componentSpacing': 50
                 }
             )),
             ] ),       
