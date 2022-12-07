@@ -23,6 +23,7 @@ nodes = [
     }
     for short, label in (
         ('jd', 'Jeremiah Dy'),
+        ('hb', 'Henry Blazier'),
         ('kbr', 'Kale Beever-Riordon'),
         ('jc', 'Jade Cui'),
         ('jl', 'Jamie Laurin'),
@@ -36,9 +37,8 @@ nodes = [
         ('tl', 'Tony Long'),
         ('eb', 'Edward Bruffey'),
         ('ca', 'Cole Amparo'),
-        ('mr', 'Michael Rogers'),
-        ('js', 'John Suelen'),
-        ('hb', 'Henry Blazier'),
+        ('gb', 'Gunwook Baik'),
+        ('sr', 'Samuel Roberts'),
         ('ss', 'Shane Severino'),
         ('hc', 'Hansen Cabanero'),
         ('co', 'Chad Oshiro'),
@@ -48,8 +48,8 @@ nodes = [
         ('jh', 'Justin Honda'),
         ('pg', 'Preston Garcia'),
         ('ce', 'Candace Edwards'),
-        ('gb', 'Gunwook Baik'),
-        ('sr', 'Samuel Roberts'),
+        ('mr', 'Michael Rogers'),
+        ('js', 'John Suelen'),
         ('kh', 'Kelly Hwang'),
         ('nl', 'Nicholas Lee'),
 
@@ -605,9 +605,9 @@ def render_content(tab):
                     id='cytoscape-layout-1',
                     # interactivity here elements 1 or 2
                     elements=rawDataAlreadyElements,
-                    style={'width': '100%', 'height': '350px'},
+                    style={'width': '100%', 'height': '700px'},
                     layout={
-                    'name': 'spread' 
+                    'name': 'cose' 
                 }
             )),
             ] ),       
