@@ -604,7 +604,7 @@ def render_content(tab):
                     elements=rawDataAlreadyElements,
                     style={'width': '100%', 'height': '700px'},
                     layout={
-                    'name': 'cose' 
+                    'name': 'breadthfirst' 
                 }
             )),
             ] ),       
