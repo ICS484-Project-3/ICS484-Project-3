@@ -512,7 +512,8 @@ modifiedDataNewly = [
         ('nl', 'ca'),
         ('nl', 'hb'),
         ('nl', 'lre'),
-        ('nl', 'lra')
+        ('nl', 'lra'),
+        ('two', 'zc'),
 
     )
 ]
@@ -521,6 +522,40 @@ rawDataNewlyElements = nodes + rawDataNewly
 rawDataAlreadyElements = nodes + rawDataAlready
 modifiedDataNewlyElements = nodes + modifiedDataNewly
 modifiedDataAlreadyElements = nodes + modifiedDataAlready
+
+
+
+question1 = [12, 10, 3, 5]
+q1titles = ['Fourth Year', 'Fifth + Graduate', 'Third Year', 'Did Not Answer']
+
+q1Fig = px.pie(values=question1, names=q1titles)
+
+question2 = [11, 13, 6]
+q2titles = ['Cat Person', 'Dog Person', 'Did Not Answer']
+
+q2Fig = px.pie(values=question2, names=q2titles)
+
+question3 = [21, 4, 5]
+q3titles = ['Introverted', 'Extroverted', 'Did Not Answer']
+
+q3Fig = px.pie(values=question3, names=q3titles)
+
+question4 = [14, 11, 5]
+q4titles = ['Not in a Relationship', 'In a Relationship', 'Did Not Answer']
+
+q4Fig = px.pie(values=question4, names=q4titles)
+
+
+question5 = [21, 4, 5]
+q5titles = ['Night Owl', 'Early Bird', 'Did Not Answer']
+
+q5Fig = px.pie(values=question5, names=q5titles)
+
+
+
+
+
+
 
 
 
@@ -533,7 +568,8 @@ app.layout = html.Div([
         dcc.Tab(label='Social Network', value='tab-1'),
         dcc.Tab(label='Raw Data Graph', value='tab-2'),
         dcc.Tab(label='Modfied Data Graphs', value='tab-3'),
-        dcc.Tab(label='About', value='tab-4'),
+        dcc.Tab(label='Demographics', value='tab-4'),
+        dcc.Tab(label='About', value='tab-5')
 
 
     ]),
@@ -576,13 +612,18 @@ def render_content(tab):
             ] ),       
             
         ], style={"border":"2px black solid"})
+
     elif tab == 'tab-1':
         return html.Div([
             html.H3('Network Graph', style={'text-align': 'center', 'color': '#148747'}),
-            html.P('This network depicts the connections betweens students in ICS484.', style={'text-align': 'center', 'color': '#148747'}),            
-            html.Img(src=r'assets/484grouping.png', alt='image'),
-
+            html.P('This network depicts the connections betweens students in ICS484.', style={'text-align': 'center', 'color': '#148747'}),        
+            dbc.Row
+             ([    
+                html.Img(src=r'assets/484grouping.png', alt='image'),
+              ]),
         ], style={"border":"2px black solid"})
+
+
     elif tab == 'tab-2':
         return html.Div([
             html.H3('Newly Acquainted Network (Raw Data)', style={'text-align': 'center', 'color': '#7A33EA'}),
@@ -614,7 +655,66 @@ def render_content(tab):
             )),
             ] ),       
         ], style={"border":"2px black solid"})
+
     elif tab == 'tab-4':
+        return html.Div([
+            html.H3('Demographic Questions', style={'text-align': 'center', 'color': '#148747'}),
+            #html.P('This network depicts the connections betweens students in ICS484.', style={'text-align': 'center', 'color': '#148747'}),        
+            dbc.Row
+             ([    
+                html.H3('Question 1: Class Standing', style={'text-align': 'center', 'color': '#148747'}),
+                dbc.Col([
+                html.Img(src=r'assets/484grouping.png', alt='image', width='100%'),
+                ], style={'width':'66%', 'float': 'left'}),
+                dbc.Col([
+                    dcc.Graph(figure=q1Fig)
+                ], style={'width': '33%', 'float': 'left'}),
+                
+              ]),
+              dbc.Row
+             ([    
+                html.H3('Question 2: Dog or Cat Person', style={'text-align': 'center', 'color': '#148747'}),
+                dbc.Col([
+                    dcc.Graph(figure=q2Fig)
+                ], style={'width': '33%', 'float': 'left'}),
+                dbc.Col([
+                html.Img(src=r'assets/484grouping.png', alt='image', width='100%'),
+                ], style={'width':'66%', 'float': 'left'}),
+              ]),
+              dbc.Row
+             ([    
+                html.H3('Question 3: Extroverted or Introverted', style={'text-align': 'center', 'color': '#148747'}),
+                dbc.Col([
+                html.Img(src=r'assets/484grouping.png', alt='image', width='100%'),
+                ], style={'width':'66%', 'float': 'left'}),
+                dbc.Col([
+                    dcc.Graph(figure=q3Fig)
+                ], style={'width': '33%', 'float': 'left'}),
+              ]),
+              dbc.Row
+             ([    
+                html.H3('Question 4: In a relationship?', style={'text-align': 'center', 'color': '#148747'}),
+                dbc.Col([
+                    dcc.Graph(figure=q4Fig)
+                ], style={'width': '33%', 'float': 'left'}),
+                dbc.Col([
+                html.Img(src=r'assets/484grouping.png', alt='image', width='100%'),
+                ], style={'width':'66%', 'float': 'left'}),
+              ]),
+              dbc.Row
+             ([    
+                html.H3('Question 5: Night Owl or Early Bird', style={'text-align': 'center', 'color': '#148747'}),
+                dbc.Col([
+                html.Img(src=r'assets/484grouping.png', alt='image', width='100%'),
+                ], style={'width':'66%', 'float': 'left'}),
+                dbc.Col([
+                    dcc.Graph(figure=q5Fig)
+                ], style={'width': '33%', 'float': 'left'}),
+              ]),
+        ], style={"border":"2px black solid"})
+
+
+    elif tab == 'tab-5':
         return html.Div([
             dcc.Markdown(
                 '''
