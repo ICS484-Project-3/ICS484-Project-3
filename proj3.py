@@ -753,6 +753,7 @@ def render_content(tab):
                 >
                 > - [Plotly](https://plotly.com/?_gl=1*54kric*_ga*MTUwMDA3NDI3Ni4xNjYzMjMwNTI5*_ga_6G7EE0JNSC*MTY2MzI4OTQ5NC4yLjEuMTY2MzMwNjc1NC4wLjAuMA/)
                 > - [Dash](https://plotly.com/dash/)
+                > - [Gephi](https://gephi.org/)
                 '''
             )
         ], style= {'width': '100%', 'height': '1000px', 'margin-top': '10', 'margin-left' : '80', 'font-size':'20px'})
