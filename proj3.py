@@ -580,7 +580,7 @@ q5Fig = px.pie(values=question5, names=q5titles, color=q5titles,
 app = Dash(__name__, external_stylesheets=external_stylesheets)
 
 app.layout = html.Div([
-    html.H1('Project 3 Possible Template'),
+    html.H1('The Social Network of ICS 484'),
     dcc.Tabs(id="tabs-example-graph", value='tab-1', children=[
         dcc.Tab(label='Social Network', value='tab-1'),
         dcc.Tab(label='Raw Data Graph', value='tab-2'),
@@ -751,8 +751,8 @@ def render_content(tab):
 
                 > ### Tools used for Visualization: 
                 >
-                > - [Plotly](https://plotly.com/?_gl=1*54kric*_ga*MTUwMDA3NDI3Ni4xNjYzMjMwNTI5*_ga_6G7EE0JNSC*MTY2MzI4OTQ5NC4yLjEuMTY2MzMwNjc1NC4wLjAuMA/), 
-                > - [Dash](https://plotly.com/dash/), 
+                > - [Plotly](https://plotly.com/?_gl=1*54kric*_ga*MTUwMDA3NDI3Ni4xNjYzMjMwNTI5*_ga_6G7EE0JNSC*MTY2MzI4OTQ5NC4yLjEuMTY2MzMwNjc1NC4wLjAuMA/)
+                > - [Dash](https://plotly.com/dash/)
                 '''
             )
         ], style= {'width': '100%', 'height': '1000px', 'margin-top': '10', 'margin-left' : '80', 'font-size':'20px'})
