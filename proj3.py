@@ -602,7 +602,7 @@ def render_content(tab):
                     id='cytoscape-layout-1',
                     # interactivity here elements 1 or 2
                     elements=modifiedDataAlreadyElements,
-                    style={'width': '100%', 'height': '600px'},
+                    style={'width': '100%', 'height': '700px'},
                     layout={
                     'name': 'cose',
                     'padding': 100,
@@ -640,7 +640,7 @@ def render_content(tab):
                 }
             )),
             ] ),  
-            html.H3('Previously Acquainted Network (Modified Data)', style={'text-align': 'center', 'color': '#E58F13'}),
+            html.H3('Previously Acquainted Network (Raw Data)', style={'text-align': 'center', 'color': '#E58F13'}),
             html.P('This network depicts the total number of connections before the start of ICS484.', style={'text-align': 'center', 'color': '#E58F13'}),            
              dbc.Row(
             [
@@ -650,7 +650,9 @@ def render_content(tab):
                     elements=rawDataAlreadyElements,
                     style={'width': '100%', 'height': '700px'},
                     layout={
-                    'name': 'breadthfirst' 
+                    'name': 'cose',
+                    'padding': 50,
+                    'componentSpacing': 50
                 }
             )),
             ] ),       
